@@ -22,8 +22,10 @@ const AuthActionSelectScreen = ({ navigation }) => {
         <Image source={splashImage} style={styles.image} />
       </View>
       <View style={styles.btns}>
-        <AppButton text={"Log In"} handlePress={handleLoginNav} />
-        <AppButton text={"Sign Up"} handlePress={handleSignupNav} />
+        <View style={styles.btn}>
+          <AppButton text={"Log In"} handlePress={handleLoginNav} />
+          <AppButton text={"Sign Up"} handlePress={handleSignupNav} />
+        </View>
       </View>
     </View>
   );

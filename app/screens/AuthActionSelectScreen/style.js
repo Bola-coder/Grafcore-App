@@ -31,6 +31,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: "center",
   },
+
+  btn: {
+    width: "90%",
+    marginHorizontal: "auto",
+  },
 });
 
 export default styles;
