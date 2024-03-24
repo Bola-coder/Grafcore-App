@@ -6,14 +6,14 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
   return (
-    // <GestureHandlerRootView>
-    <View style={styles.container}>
-      <NavigationContainer>
-        <MainNavigation />
-      </NavigationContainer>
-      <StatusBar style="auto" />
-    </View>
-    // </GestureHandlerRootView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <NavigationContainer>
+          <MainNavigation />
+        </NavigationContainer>
+        <StatusBar style="auto" />
+      </View>
+    </GestureHandlerRootView>
   );
 }
 

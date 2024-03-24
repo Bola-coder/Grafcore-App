@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Dimensions } from "react-native";
 import React, { useState } from "react";
 import onboardingImageOne from "./../../../assets/images/onboardingImageOne.png";
 import onboardingImageTwo from "./../../../assets/images/onboardingImageTwo.png";
@@ -8,6 +8,7 @@ import activeIcon from "./../../../assets/icons/activeIcon.png";
 import inactiveIcon from "./../../../assets/icons/inactiveIcon.png";
 
 const OnboardingScreen = ({ navigation }) => {
+  const width = Dimensions.get("window");
   const [active, setActive] = useState(0);
   const onboarding = [
     {
@@ -37,12 +38,12 @@ const OnboardingScreen = ({ navigation }) => {
     if (active < 2) {
       setActive(active + 1);
     } else {
-      navigation.navigate("Home");
+      navigation.navigate("AuthActionSelect");
     }
   };
 
   const handleSkip = () => {
-    navigation.navigate("Home");
+    navigation.navigate("AuthActionSelect");
   };
 
   return (
