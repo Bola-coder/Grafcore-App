@@ -1,10 +1,10 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, KeyboardAvoidingView } from "react-native";
 import React, { useEffect, useState } from "react";
 import styles from "./style";
 import AppHeader from "../../components/AppHeader";
 import AppButton from "../../components/AppButton";
 
-const Signup = () => {
+const Signup = ({ navigation }) => {
   const [buttonDIsabled, setButtonDisabled] = useState(true);
   const [formDetails, setFormDetails] = useState({
     email: "",
@@ -15,6 +15,11 @@ const Signup = () => {
   const handleSignup = () => {
     console.log("Signup");
     console.log(formDetails);
+    if (formDetails.password !== formDetails.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    navigation.navigate("EmailConfirmation");
   };
 
   const handleInputChange = (key, value) => {
@@ -34,7 +39,7 @@ const Signup = () => {
   }, [formDetails]);
 
   return (
-    <View style={styles.signup}>
+    <KeyboardAvoidingView behavior="padding" style={styles.signup}>
       <AppHeader />
       <View style={styles.content}>
         <View>
@@ -89,7 +94,7 @@ const Signup = () => {
           />
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
