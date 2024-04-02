@@ -1,20 +1,16 @@
 import {
+  KeyboardAvoidingView,
   View,
   Text,
   TextInput,
-  KeyboardAvoidingView,
-  Platform,
-  Alert,
+  TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { openInbox } from "react-native-email-link";
-import * as IntentLauncher from "expo-intent-launcher";
-import styles from "./style";
 import AppHeader from "../../components/AppHeader";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import AppButton from "../../components/AppButton";
+import styles from "./../EmailConfirmation/style";
 
-const EmailConfirmation = ({ navigation }) => {
+const PhoneNumberConfirmation = ({ navigation }) => {
   const [buttonDIsabled, setButtonDisabled] = useState(true);
   const [verificationCode, setVerificationCode] = useState("");
 
@@ -22,31 +18,8 @@ const EmailConfirmation = ({ navigation }) => {
     setVerificationCode(value);
   };
 
-  const openEmailApp = async () => {
-    if (Platform.OS === "ios") {
-      try {
-        await openInbox({ title: "Open mail app" });
-      } catch (error) {
-        console.log(`OpenEmailBox > IOS Error ${error}`);
-      }
-    } else if (Platform.OS === "android") {
-      try {
-        const activityAction = "android.intent.action.MAIN";
-        const intentParams = {
-          category: "android.intent.category.APP_EMAIL",
-        };
-        IntentLauncher.startActivityAsync(activityAction, intentParams);
-      } catch (error) {
-        console.log(`OpenEmailBox > Android Error ${error}`);
-      }
-    } else {
-      Alert("This feature is not supported on this platform");
-      return;
-    }
-  };
-
-  const handlePress = () => {
-    navigation.navigate("PersonalDetails");
+  const handleNext = () => {
+    navigation.navigate("AddressInformation");
   };
 
   useEffect(() => {
@@ -55,18 +28,19 @@ const EmailConfirmation = ({ navigation }) => {
     } else {
       setButtonDisabled(true);
     }
-  });
+  }, [verificationCode]);
   return (
     <KeyboardAvoidingView style={styles.emailConfirmation}>
       <AppHeader />
       <View style={styles.content}>
         <View>
-          <Text style={styles.title}>Confirm your email address</Text>
+          <Text style={styles.title}>Confirm Your Phone Number</Text>
           <Text style={styles.description}>
-            We’ll send a code to your email address to confirm you own it.
+            We’ll send a code to the phone number you provided to confirm you
+            own it.
           </Text>
           <View style={styles.form}>
-            <Text style={styles.formText}>testingaccount@ev.com</Text>
+            <Text style={styles.formText}>(234) 08106454127</Text>
             <View style={styles.inputContainer}>
               <Text style={styles.label}>Verification Code</Text>
               <TextInput
@@ -81,13 +55,13 @@ const EmailConfirmation = ({ navigation }) => {
               <TouchableOpacity style={styles.actionBtn}>
                 <Text style={styles.resendBtnText}>Resend Code</Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={0.7}
-                onPress={openEmailApp}
-                style={styles.actionBtn}
-              >
-                <Text style={styles.emailBtnText}>Open Email App</Text>
-              </TouchableOpacity>
+              {/* <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={openEmailApp}
+              style={styles.actionBtn}
+            >
+              <Text style={styles.emailBtnText}>Open Email App</Text>
+            </TouchableOpacity> */}
             </View>
           </View>
         </View>
@@ -95,7 +69,7 @@ const EmailConfirmation = ({ navigation }) => {
           <AppButton
             text={"Next"}
             isDisabled={buttonDIsabled}
-            handlePress={handlePress}
+            handlePress={handleNext}
           />
         </View>
       </View>
@@ -103,4 +77,4 @@ const EmailConfirmation = ({ navigation }) => {
   );
 };
 
-export default EmailConfirmation;
+export default PhoneNumberConfirmation;

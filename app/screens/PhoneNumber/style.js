@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  emailConfirmation: {
+  phoneNumberInput: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFF",
     padding: 10,
   },
 
@@ -54,36 +54,12 @@ const styles = StyleSheet.create({
     color: "#333",
     // fontWeight: "bold",
   },
-
-  actions: {
-    marginTop: 20,
-    alignItems: "center",
-  },
-
-  actionBtn: {
-    padding: 10,
-    marginVertical: 5,
-  },
-
-  resendBtnText: {
-    color: "#9380B0",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-
-  emailBtnText: {
-    color: "#222",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-
   footer: {
     alignSelf: "flex-end",
     width: "100%",
     alignItems: "center",
     marginBottom: 20,
   },
-
 });
 
 export default styles;
