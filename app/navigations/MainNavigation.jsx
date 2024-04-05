@@ -11,6 +11,10 @@ import PhoneNumberInput from "../screens/PhoneNumber/PhoneNumberInput";
 import PhoneNumberConfirmation from "../screens/PhoneNumberConfirmations/PhoneNumberConfirmation";
 import AddressInformation from "../screens/AddressInformation/AddressInformation";
 import AccountCreationSuccess from "../screens/AccountCreationSuccess/AccountCreationSuccess";
+import ForgotPassword from "../screens/ForgotPassword/ForgotPassword";
+import CheckMailForPasswordReset from "../screens/CheckMailForPasswordReset/CheckMailForPasswordReset";
+import ResetPassword from "../screens/ResetPassword/ResetPassword";
+import ResetPasswordSuccess from "../screens/ResetPasswordSuccess/ResetPasswordSuccess";
 
 const Stack = createNativeStackNavigator();
 const MainNavigation = () => {
@@ -38,6 +42,16 @@ const MainNavigation = () => {
       <Stack.Screen
         name="AccountCreationSuccess"
         component={AccountCreationSuccess}
+      />
+      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <Stack.Screen
+        name="CheckMailForPasswordReset"
+        component={CheckMailForPasswordReset}
+      />
+      <Stack.Screen name="ResetPassword" component={ResetPassword} />
+      <Stack.Screen
+        name="ResetPasswordSuccess"
+        component={ResetPasswordSuccess}
       />
     </Stack.Navigator>
   );

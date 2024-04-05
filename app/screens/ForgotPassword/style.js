@@ -1,30 +1,30 @@
 import { StyleSheet } from "react-native";
-
 const styles = StyleSheet.create({
-  login: {
+  forgotPassword: {
     flex: 1,
     backgroundColor: "#fff",
     padding: 10,
   },
 
-  logo: {
-    marginTop: "10%",
-    alignSelf: "center",
+  content: {
+    flex: 1,
+    marginTop: 30,
+    justifyContent: "space-between",
   },
 
-  textContainer: {
-    marginTop: "4%",
-    alignItems: "center",
-  },
-
-  text: {
+  title: {
     fontSize: 22,
     fontWeight: "bold",
   },
 
+  description: {
+    fontSize: 16,
+    color: "#392E32",
+    marginTop: 10,
+  },
+
   form: {
-    marginTop: "10%",
-    paddingHorizontal: 10,
+    marginTop: 20,
   },
 
   inputContainer: {
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 
   input: {
     fontSize: 20,
-    padding: 12,
+    padding: 15,
     borderWidth: 1,
     borderColor: "#B0ABAD",
     backgroundColor: "#ECECEC",
@@ -48,27 +48,11 @@ const styles = StyleSheet.create({
     // fontWeight: "bold",
   },
 
-  btn: {
-    marginTop: "5%",
-  },
-
-  changePasswordLink: {
-    color: "#270162",
-    fontSize: 16,
-    textAlign: "center",
-    marginTop: 10,
-    fontWeight: "bold",
-  },
-
-  fingerprintImageContainer: {
-    marginTop: "4%",
+  footer: {
+    alignSelf: "flex-end",
+    width: "100%",
     alignItems: "center",
-  },
-
-  subText: {
-    fontSize: 16,
-    color: "#392E32",
-    marginTop: 10,
+    marginBottom: 20,
   },
 });
 
